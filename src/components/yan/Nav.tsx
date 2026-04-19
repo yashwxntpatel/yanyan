@@ -27,7 +27,9 @@ export const Nav = () => {
     const sections = ids
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
+
     if (!sections.length) return;
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -36,6 +38,7 @@ export const Nav = () => {
       },
       { rootMargin: "-42% 0px -48% 0px", threshold: 0.02 }
     );
+
     sections.forEach((section) => io.observe(section));
     return () => io.disconnect();
   }, []);
@@ -47,22 +50,31 @@ export const Nav = () => {
       }`}
     >
       <nav className="container flex h-20 items-center justify-between lg:h-[92px]">
-        <a href="#top" className="group flex items-center" aria-label="Yàn Yàn Bangalore" onClick={() => setOpen(false)}>
+        <a
+          href="#top"
+          className="group flex items-center"
+          aria-label="Yàn Yàn Bangalore"
+          onClick={() => setOpen(false)}
+        >
           <img
             src={logo}
             alt="Yàn Yàn logo"
-           className={`w-auto transition-all duration-700 group-hover:drop-shadow-[0_0_16px_hsl(var(--gold)/0.5)] ${
-           scrolled ? "h-16 lg:h-18" : "h-20 lg:h-22"
-           }`}
+            className={`w-auto transition-all duration-700 group-hover:drop-shadow-[0_0_16px_hsl(var(--gold)/0.5)] ${
+              scrolled ? "h-14 lg:h-16" : "h-16 lg:h-20"
+            }`}
           />
         </a>
 
-        <ul className="hidden items-center gap-7 lg:flex xl:gap-9 font-sans-lux text-[10px] text-ivory/76">
+        <ul className="hidden items-center gap-7 lg:flex xl:gap-9 font-sans-lux text-[10px] tracking-[0.28em] text-ivory/76">
           {links.map((link) => {
             const isActive = active === link.href;
+
             return (
               <li key={link.href}>
-                <a href={link.href} className={`relative py-2 transition-colors duration-500 hover:text-gold ${isActive ? "nav-active" : ""}`}>
+                <a
+                  href={link.href}
+                  className={`relative py-2 transition-colors duration-500 hover:text-gold ${isActive ? "nav-active" : ""}`}
+                >
                   {link.label}
                   <span
                     className={`absolute -bottom-1 left-1/2 h-px -translate-x-1/2 bg-gold transition-all duration-500 ${
@@ -77,10 +89,16 @@ export const Nav = () => {
         </ul>
 
         <div className="hidden lg:flex items-center gap-4">
-          <a href="https://www.instagram.com/yanyanbangalore/" target="_blank" rel="noreferrer" className="font-sans-lux text-[10px] text-ivory/64 transition-colors duration-500 hover:text-gold">
+          <a
+            href="https://www.instagram.com/yanyanbangalore/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-sans-lux text-[10px] tracking-[0.28em] text-ivory/64 transition-colors duration-500 hover:text-gold"
+          >
             Instagram
           </a>
-          <a href="#reserve" className="btn-gold !px-5 !text-[9px]">
+
+          <a href="#reserve" className="btn-gold !px-5 !py-2 !text-[9px]">
             Book a Table
           </a>
         </div>
@@ -91,22 +109,45 @@ export const Nav = () => {
           onClick={() => setOpen((value) => !value)}
           className="flex flex-col gap-1.5 p-2 lg:hidden"
         >
-          <span className={`block h-px w-6 bg-gold transition-transform duration-500 ${open ? "translate-y-[7px] rotate-45" : ""}`} />
-          <span className={`block h-px w-6 bg-gold transition-opacity duration-300 ${open ? "opacity-0" : ""}`} />
-          <span className={`block h-px w-6 bg-gold transition-transform duration-500 ${open ? "-translate-y-[7px] -rotate-45" : ""}`} />
+          <span
+            className={`block h-px w-6 bg-gold transition-transform duration-500 ${
+              open ? "translate-y-[7px] rotate-45" : ""
+            }`}
+          />
+          <span
+            className={`block h-px w-6 bg-gold transition-opacity duration-300 ${
+              open ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`block h-px w-6 bg-gold transition-transform duration-500 ${
+              open ? "-translate-y-[7px] -rotate-45" : ""
+            }`}
+          />
         </button>
       </nav>
 
-      <div className={`overflow-hidden transition-all duration-700 ease-out lg:hidden ${open ? "max-h-[85vh]" : "max-h-0"}`}>
+      <div
+        className={`overflow-hidden transition-all duration-700 ease-out lg:hidden ${
+          open ? "max-h-[85vh]" : "max-h-0"
+        }`}
+      >
         <div className="glass-luxe border-t border-gold/20">
-          <ul className="container flex flex-col gap-5 py-8 font-sans-lux text-xs text-ivory/86">
+          <ul className="container flex flex-col gap-5 py-8 font-sans-lux text-xs tracking-[0.22em] text-ivory/86">
             {links.map((link) => (
               <li key={link.href}>
-                <a href={link.href} onClick={() => setOpen(false)} className={`block py-2 transition-colors hover:text-gold ${active === link.href ? "nav-active" : ""}`}>
+                <a
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`block py-2 transition-colors hover:text-gold ${
+                    active === link.href ? "nav-active" : ""
+                  }`}
+                >
                   {link.label}
                 </a>
               </li>
             ))}
+
             <li className="pt-3">
               <a href="#reserve" onClick={() => setOpen(false)} className="btn-gold w-full">
                 Book a Table
