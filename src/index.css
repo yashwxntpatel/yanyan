@@ -209,6 +209,60 @@
     font-weight: 600;
     letter-spacing: 0.015em;
     line-height: 1.08;
+    transition:
+      transform 0.7s var(--ease-luxe),
+      letter-spacing 0.7s var(--ease-luxe),
+      text-shadow 0.7s var(--ease-luxe),
+      filter 0.7s var(--ease-luxe);
+  }
+
+  .luxury-title-hover {
+    transition:
+      transform 0.75s var(--ease-luxe),
+      letter-spacing 0.75s var(--ease-luxe),
+      text-shadow 0.75s var(--ease-luxe),
+      filter 0.75s var(--ease-luxe);
+  }
+
+  .luxury-title-hover:hover {
+    transform: translateY(-2px);
+    letter-spacing: 0.035em;
+    text-shadow: 0 10px 30px hsl(43 72% 54% / 0.16);
+    filter: brightness(1.04);
+  }
+
+  .group:hover .card-title-luxe,
+  .group:hover .luxury-title-hover {
+    transform: translateY(-3px);
+    letter-spacing: 0.03em;
+    text-shadow: 0 10px 30px hsl(43 72% 54% / 0.16);
+    filter: brightness(1.05);
+  }
+
+  .group:hover .font-script.text-gold-script {
+    transform: translateY(-1px) scale(1.015);
+    filter: brightness(1.05);
+  }
+
+  .font-script.text-gold-script {
+    display: inline-block;
+    transition:
+      transform 0.7s var(--ease-luxe),
+      filter 0.7s var(--ease-luxe),
+      text-shadow 0.7s var(--ease-luxe);
+  }
+
+  .nav-luxury-link {
+    position: relative;
+    transition:
+      color 0.5s var(--ease-luxe),
+      letter-spacing 0.5s var(--ease-luxe),
+      text-shadow 0.5s var(--ease-luxe);
+  }
+
+  .nav-luxury-link:hover {
+    letter-spacing: 0.32em;
+    text-shadow: 0 0 14px hsl(43 70% 55% / 0.16);
   }
 
   .text-gold {
