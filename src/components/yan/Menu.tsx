@@ -1,3 +1,4 @@
+// updated luxury typography version
 import soup from "@/assets/food-soup-dumpling.jpg";
 import dimsum from "@/assets/food-dim-sum-platter.jpg";
 import bao from "@/assets/food-charcoal-bao.jpg";
@@ -47,25 +48,50 @@ const drinkItems = [
 export const Menu = () => (
   <section id="menu" className="section-shell relative py-32 md:py-40 silk-bg">
     <div className="container relative">
+
+      {/* SECTION HEADER */}
       <div className="reveal mb-20 text-center md:mb-24">
-        <p className="ornament font-sans-lux mb-8 justify-center text-[10px] text-gold">The Menu</p>
-        <h2 className="font-display mb-6 text-gold text-5xl md:text-6xl lg:text-7xl">Food & Drinks, Curated Beautifully</h2>
-        <p className="font-serif-lux mx-auto max-w-3xl text-xl italic text-ivory/68 md:text-[1.65rem]">Every image now lives inside the experience — from signature plates to cocktails designed for slow evenings.</p>
+        <p className="ornament font-sans-lux mb-8 justify-center text-[10px] text-gold">
+          The Menu
+        </p>
+
+        <h2 className="font-display heading-luxe mb-6 text-gold text-5xl md:text-6xl lg:text-7xl">
+          Food & Drinks,
+          <br />
+          <span className="font-script text-gold-script text-[0.85em]">
+            Curated Beautifully
+          </span>
+        </h2>
+
+        <p className="section-intro-luxe mx-auto max-w-3xl italic">
+          Every image now lives inside the experience — from signature plates to
+          cocktails designed for slow evenings.
+        </p>
       </div>
 
+      {/* FEATURED */}
       <div className="mb-20 grid gap-6 md:grid-cols-2">
         {featuredCategories.map((category, index) => (
           <article key={category.title} className="group reveal-scale relative overflow-hidden gold-border shadow-card" style={{ transitionDelay: `${index * 110}ms` }}>
             <div className="grid md:grid-cols-[1.05fr_0.95fr]">
               <div className="relative min-h-[280px] overflow-hidden">
-                <img src={category.image} alt={category.title} className="zoom-img h-full w-full object-cover" loading="lazy" width={2048} height={1492} />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsl(0 90% 4% / 0.18), hsl(0 90% 4% / 0.56))" }} />
+                <img src={category.image} alt={category.title} className="zoom-img h-full w-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/60" />
               </div>
+
               <div className="flex items-center p-8 md:p-10">
                 <div>
-                  <p className="font-sans-lux mb-4 text-[10px] text-gold/82">Category</p>
-                  <h3 className="font-display mb-4 text-gold text-4xl md:text-[2.5rem]">{category.title}</h3>
-                  <p className="font-serif-lux text-xl leading-relaxed text-ivory/76 md:text-[1.35rem]">{category.description}</p>
+                  <p className="label-luxe mb-4 text-[10px] text-gold/82">
+                    Category
+                  </p>
+
+                  <h3 className="font-display text-gold text-4xl md:text-[2.5rem]">
+                    {category.title}
+                  </h3>
+
+                  <p className="copy-luxe text-xl text-ivory/76 md:text-[1.35rem]">
+                    {category.description}
+                  </p>
                 </div>
               </div>
             </div>
@@ -73,55 +99,92 @@ export const Menu = () => (
         ))}
       </div>
 
+      {/* FOOD */}
       <div className="mb-24">
         <div className="reveal mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="font-sans-lux mb-3 text-[10px] text-gold">Food</p>
-            <h3 className="font-display text-gold text-4xl md:text-5xl">Signature Food Selection</h3>
+            <p className="label-luxe mb-3 text-[10px] text-gold">
+              Food
+            </p>
+
+            <h3 className="font-display text-gold text-4xl md:text-5xl">
+              <span className="font-script text-gold-script mr-3">
+                Signature
+              </span>
+              Food Selection
+            </h3>
           </div>
-          <p className="font-serif-lux max-w-2xl text-lg italic text-ivory/64 md:text-[1.25rem]">Dim sum baskets, comforting broths, wok dishes, and refined plates showcased with one-line tasting notes.</p>
+
+          <p className="section-intro-luxe max-w-2xl italic">
+            Dim sum baskets, comforting broths, wok dishes, and refined plates
+            showcased with one-line tasting notes.
+          </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {foodItems.map((item, index) => (
             <article key={item.name} className="group reveal-scale overflow-hidden gold-border shadow-card" style={{ transitionDelay: `${index * 70}ms` }}>
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={item.image} alt={item.name} className="zoom-img h-full w-full object-cover" loading="lazy" width={2048} height={1404} />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsl(0 90% 4% / 0.04), hsl(0 90% 4% / 0.38))" }} />
+                <img src={item.image} alt={item.name} className="zoom-img h-full w-full object-cover" />
               </div>
+
               <div className="p-6 md:p-7">
-                <h4 className="font-display mb-3 text-gold text-[1.75rem] leading-tight">{item.name}</h4>
-                <p className="font-serif-lux text-lg leading-relaxed text-ivory/72">{item.description}</p>
+                <h4 className="card-title-luxe mb-3 text-gold text-[1.75rem]">
+                  {item.name}
+                </h4>
+
+                <p className="copy-luxe text-lg text-ivory/72">
+                  {item.description}
+                </p>
               </div>
             </article>
           ))}
         </div>
       </div>
 
+      {/* DRINKS */}
       <div>
         <div className="reveal mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="font-sans-lux mb-3 text-[10px] text-gold">Drinks</p>
-            <h3 className="font-display text-gold text-4xl md:text-5xl">Cocktails & House Pours</h3>
+            <p className="label-luxe mb-3 text-[10px] text-gold">
+              Drinks
+            </p>
+
+            <h3 className="font-display text-gold text-4xl md:text-5xl">
+              <span className="font-script text-gold-script mr-3">
+                Cocktails
+              </span>
+              & House Pours
+            </h3>
           </div>
-          <p className="font-serif-lux max-w-2xl text-lg italic text-ivory/64 md:text-[1.25rem]">Fresh citrus, floral sparkle, chilled martini depth, and lounge-led serves built for the bar mood.</p>
+
+          <p className="section-intro-luxe max-w-2xl italic">
+            Fresh citrus, floral sparkle, chilled martini depth, and lounge-led
+            serves built for the bar mood.
+          </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-5">
           {drinkItems.map((item, index) => (
             <article key={item.name} className="group reveal-scale overflow-hidden gold-border shadow-card" style={{ transitionDelay: `${index * 80}ms` }}>
-              <div className="relative aspect-[3/4] overflow-hidden bg-black/50">
-                <img src={item.image} alt={item.name} className="zoom-img h-full w-full object-cover" loading="lazy" width={1435} height={2048} />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsl(0 90% 4% / 0.03), hsl(0 90% 4% / 0.46))" }} />
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <img src={item.image} alt={item.name} className="zoom-img h-full w-full object-cover" />
               </div>
+
               <div className="p-6 md:p-7">
-                <h4 className="font-display mb-3 text-gold text-[1.7rem] leading-tight">{item.name}</h4>
-                <p className="font-serif-lux text-lg leading-relaxed text-ivory/72">{item.description}</p>
+                <h4 className="card-title-luxe mb-3 text-gold text-[1.7rem]">
+                  {item.name}
+                </h4>
+
+                <p className="copy-luxe text-lg text-ivory/72">
+                  {item.description}
+                </p>
               </div>
             </article>
           ))}
         </div>
       </div>
+
     </div>
   </section>
 );
